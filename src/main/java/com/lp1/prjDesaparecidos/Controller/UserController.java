@@ -25,6 +25,17 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @GetMapping("/status")
+    public ResponseEntity<String> status() {
+
+        Connection con = Database.Conectar();
+        if (con != null) {
+            return ResponseEntity.status(HttpStatus.ACCEPTED).body("Deu Certo.");
+        }
+
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Deu Errado.");
+    }
+
     @PostMapping("/cadastro")
     public ResponseEntity<String> cadastro(@RequestBody User user) {
 
