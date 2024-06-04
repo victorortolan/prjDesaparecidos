@@ -4,6 +4,8 @@
  */
 package com.lp1.prjDesaparecidos.Model;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,12 +16,24 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
-    
+
     @Autowired
     private UserRepository userRepository;
-    
-    public User createUser(User user){
+
+    public User createUser(User user) {
         return userRepository.save(user);
     }
-    
+
+    public User registerNewUser(User user) {
+        User usr = userRepository.findByEmail(user.getEmail());
+        if (usr != null) {
+            return null;
+        }
+        return userRepository.save(user);
+    }
+
+    // public Optional<User> returnUserByID(Long id) {
+    // return userRepository.findById(id);
+    // }
+
 }

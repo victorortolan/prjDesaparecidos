@@ -4,12 +4,16 @@
  */
 package com.lp1.prjDesaparecidos.Model;
 
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
  * @author vitor
  */
-public interface UserRepository extends JpaRepository<User,Long> {
-    
+public interface UserRepository extends JpaRepository<User, Long> {
+
+    User findByEmail(String email);
+
 }
