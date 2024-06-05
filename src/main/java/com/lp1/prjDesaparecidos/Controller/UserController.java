@@ -38,7 +38,6 @@ public class UserController {
 
     @PostMapping("/cadastro")
     public ResponseEntity<String> cadastro(@RequestBody User user) {
-
         User userCriado = userService.registerNewUser(user);
         if (userCriado instanceof User) { // ou == NULL
             return ResponseEntity.status(HttpStatus.CREATED).body("Usuário Criado com Sucesso!");
@@ -46,5 +45,4 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro Interno ao Criar Usuário!");
         }
     }
-
 }
