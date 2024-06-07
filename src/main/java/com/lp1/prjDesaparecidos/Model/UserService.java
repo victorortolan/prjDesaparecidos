@@ -46,4 +46,9 @@ public class UserService {
         return userRepository.getReferenceById(id);
     }
 
+    public void deleteUser(Long id) {
+        if (userRepository.existsById(id)) {
+            userRepository.deleteById(id);
+        }
+    }
 }
