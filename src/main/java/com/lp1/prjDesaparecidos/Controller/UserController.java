@@ -15,11 +15,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lp1.prjDesaparecidos.Model.Database;
+import com.lp1.prjDesaparecidos.Model.LoginUser;
 import com.lp1.prjDesaparecidos.Model.User;
 import com.lp1.prjDesaparecidos.Model.UserService;
 
 @RestController
-// @RequestMapping(path = "api")
+@RequestMapping(path = "api/v1")
 public class UserController {
 
     @Autowired
@@ -45,4 +46,12 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro Interno ao Criar Usuário!");
         }
     }
+
+    @PostMapping("/login")
+    public ResponseEntity<String> login(@RequestBody LoginUser user) {
+        String responseText = userService.login(user);
+        return ResponseEntity.status(HttpStatus.ACCEPTED)
+                .body("Login feito para o usuário de id : " + responseText + " .\n");
+    }
+
 }

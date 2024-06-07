@@ -32,8 +32,14 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    // public Optional<User> returnUserByID(Long id) {
-    // return userRepository.findById(id);
-    // }
+    public String login(LoginUser user) {
+        User usr = userRepository.findByEmail(user.getEmail());
+
+        if (usr.getPassword().equals(user.getPassword())) {
+            return (usr.getId()).toString();
+        }
+        return "Nao Autorizado";
+
+    }
 
 }
