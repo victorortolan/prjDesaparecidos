@@ -18,10 +18,6 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public User createUser(User user) {
-        return userRepository.save(user);
-    }
-
     public User registerNewUser(User user) {
         User usr = userRepository.findByEmail(user.getEmail());
         if (usr != null) {

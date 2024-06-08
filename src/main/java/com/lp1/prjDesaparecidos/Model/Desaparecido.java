@@ -14,6 +14,9 @@ public class Desaparecido {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    public Desaparecido() {
+    }
+
     private String nome;
     private int idade;
     private String cor;
