@@ -53,6 +53,9 @@ public class UserController {
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody LoginUser user) {
         String responseText = userService.login(user);
+        if (responseText.equals("Nao Autorizado")) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Não Autorizado");
+        }
         return ResponseEntity.status(HttpStatus.ACCEPTED)
                 .body("Login feito para o usuário de id : " + responseText + " .\n");
     }
