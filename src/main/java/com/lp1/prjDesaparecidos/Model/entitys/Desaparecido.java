@@ -1,4 +1,4 @@
-package com.lp1.prjDesaparecidos.Model;
+package com.lp1.prjDesaparecidos.Model.entitys;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
