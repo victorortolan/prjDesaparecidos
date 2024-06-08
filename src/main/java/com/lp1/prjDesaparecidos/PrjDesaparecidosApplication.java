@@ -9,7 +9,6 @@ import com.lp1.prjDesaparecidos.Model.Database;
 
 @SpringBootApplication
 public class PrjDesaparecidosApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(PrjDesaparecidosApplication.class, args);
     }
