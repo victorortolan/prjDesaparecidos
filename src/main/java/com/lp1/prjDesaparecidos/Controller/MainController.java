@@ -14,8 +14,13 @@ public class MainController {
         return "index";
     }
 
-    @GetMapping("/js/index.js")
-    public String getJs() {
-        return "js/index.js";
+    @GetMapping("login")
+    public String showLoginPage() {
+        return "login";
+    }
+
+    @GetMapping("lista")
+    public String showListaDesaparecidos() {
+        return "lista";
     }
 }
