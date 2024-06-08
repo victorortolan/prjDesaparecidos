@@ -17,8 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lp1.prjDesaparecidos.Model.Database;
-import com.lp1.prjDesaparecidos.Model.LoginUser;
-import com.lp1.prjDesaparecidos.Model.RegistrationUser;
 import com.lp1.prjDesaparecidos.Model.User;
 import com.lp1.prjDesaparecidos.Model.UserService;
 
@@ -51,7 +49,7 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody LoginUser user) {
+    public ResponseEntity<String> login(@RequestBody User user) {
         String responseText = userService.login(user);
         if (responseText.equals("Nao Autorizado")) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Não Autorizado");

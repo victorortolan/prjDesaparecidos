@@ -4,8 +4,6 @@
  */
 package com.lp1.prjDesaparecidos.Model;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,7 +30,7 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public String login(LoginUser user) {
+    public String login(User user) {
         User usr = userRepository.findByEmail(user.getEmail());
 
         if (usr.getPassword().equals(user.getPassword())) {
