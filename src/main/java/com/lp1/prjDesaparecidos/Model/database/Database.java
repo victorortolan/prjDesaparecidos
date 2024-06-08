@@ -1,4 +1,4 @@
-package com.lp1.prjDesaparecidos.Model;
+package com.lp1.prjDesaparecidos.Model.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

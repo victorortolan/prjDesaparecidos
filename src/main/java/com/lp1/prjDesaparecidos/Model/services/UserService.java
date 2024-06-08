@@ -2,10 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.lp1.prjDesaparecidos.Model;
+package com.lp1.prjDesaparecidos.Model.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.lp1.prjDesaparecidos.Model.entitys.User;
+import com.lp1.prjDesaparecidos.Model.repository.UserRepository;
 
 /**
  *
