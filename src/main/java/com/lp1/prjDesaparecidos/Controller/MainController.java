@@ -20,4 +20,9 @@ public class MainController {
     public String showListaDesaparecidos() {
         return "lista";
     }
+
+    @GetMapping("desaparecido")
+    public String showAddDesaparecido() {
+        return "desaparecido";
+    }
 }
