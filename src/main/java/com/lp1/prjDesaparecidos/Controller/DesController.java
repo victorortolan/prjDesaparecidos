@@ -24,16 +24,15 @@ public class DesController {
     private DesaparecidoService service;
 
     @PostMapping("/adiciona")
-    public String addDesaparecido(@RequestBody Desaparecido des) {
+    public ResponseEntity<String> addDesaparecido(@RequestBody Desaparecido des) {
         service.adicionaDes(des);
-
-        return "Adicionado.";
+        return ResponseEntity.status(HttpStatus.OK).body("Adicionado.");
     };
 
     @DeleteMapping("/deleted/{id}")
-    public String delDesaparecido(@PathVariable Long id) {
+    public ResponseEntity<String> delDesaparecido(@PathVariable Long id) {
         service.deletaDes(id);
-        return "Deletado da Listagem.";
+        return ResponseEntity.status(HttpStatus.OK).body("Deletado da Listagem.");
     };
 
     @GetMapping("/lista")
