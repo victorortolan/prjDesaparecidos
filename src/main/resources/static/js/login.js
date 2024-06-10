@@ -11,9 +11,11 @@ loginBtn.addEventListener("click", () => {
 });
 
 const cadastroForm = document.getElementById("cadastroForm");
+const textC = document.getElementById("text_visual_cadastro");
+const textL = document.getElementById("text_visual_login");
 
 cadastroForm.addEventListener("submit", async (e) => {
-  console.log(e);
+  e.preventDefault();
   const formData = {
     nome: document.getElementById("nomeC").value,
     email: document.getElementById("emailC").value,
@@ -25,6 +27,12 @@ cadastroForm.addEventListener("submit", async (e) => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(formData),
   });
+  const response_text = await response.text();
+  if (response_text == "Usuário Criado com Sucesso!") {
+    textC.innerHTML = `<h3 style="color:green;margin-top:50px;">Usuário Cadastrado com Sucesso.</h3>`;
+  } else {
+    textC.innerHTML = `<h3 style="color:red;margin-top:50px;"}}>Não foi possível cadastrar usuário.</h3>`;
+  }
 });
 
 const loginForm = document.getElementById("loginForm");
@@ -42,4 +50,11 @@ loginForm.addEventListener("submit", async (e) => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(formData),
   });
+
+  const response_text = await response.text();
+  if (response_text != "Não Autorizado") {
+    textL.innerHTML = `<h3 style="color:green;margin-top:50px;">Usuário Logado com Sucesso.</h3>`;
+  } else {
+    textL.innerHTML = `<h3 style="color:red;margin-top:50px;"}}>Não foi possível fazer login.</h3>`;
+  }
 });
