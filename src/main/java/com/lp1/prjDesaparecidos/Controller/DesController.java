@@ -9,11 +9,13 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lp1.prjDesaparecidos.Model.entitys.Desaparecido;
+import com.lp1.prjDesaparecidos.Model.entitys.User;
 import com.lp1.prjDesaparecidos.Model.services.DesaparecidoService;
 
 @RestController
@@ -41,9 +43,20 @@ public class DesController {
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 
-    // @PutMapping("/desaparecido/{id}")
-    // public void atualizaDesaparecido(@PathVariable Long id,@RequestBody
-    // Desaparecido des){
-    // service.update();
-    // }
+    @GetMapping("/des/{id}")
+    public ResponseEntity<String> getUserData(@PathVariable Long id) {
+        Desaparecido user = service.getDesaparecido(id);
+        return ResponseEntity.status(HttpStatus.OK)
+                .body("{\"nome\":\"" + user.getNome() + "\",\"idade\": \"" + user.getIdade() + "\",\"cor\": \""
+                        + user.getCor() + "\",\"cabelos\": \"" + user.getCabelos() + "\",\"documento\": \""
+                        + user.getDocumento()
+                        + "\",\"cidade\": \"" + user.getCidade() + "\"}");
+    }
+
+    @PutMapping("/des/{id}")
+    public ResponseEntity<String> updateUser(@PathVariable Long id, @RequestBody Desaparecido desaparecido) {
+        service.updateDesaparecido(id, desaparecido);
+        return ResponseEntity.ok("Atualizado com Sucesso!");
+    }
+
 }

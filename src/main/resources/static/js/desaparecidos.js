@@ -1,5 +1,10 @@
 const botao_add = document.getElementById("botao_add_desaparecido");
 const text = document.getElementById("texto_feedback");
+const btn = document.getElementById("back_btn");
+btn.addEventListener("click", (e) => {
+  e.preventDefault();
+  window.location = "/";
+});
 botao_add.addEventListener("click", async (e) => {
   e.preventDefault();
   // const genero = document.getElementById("genero");
@@ -20,6 +25,9 @@ botao_add.addEventListener("click", async (e) => {
   const response_text = await response.text();
   if (response_text == "Adicionado.") {
     text.innerHTML = `<h3 style="color:green;margin-top:70px;">Desaparecido Adicionado.</h3>`;
+    setTimeout(() => {
+      window.location.href = "/lista";
+    }, 3000);
   } else {
     text.innerHTML = `<h3 style="color:red;margin-top:70px;"}}>Não é possível cadastrar desaparecido.</h3>`;
   }

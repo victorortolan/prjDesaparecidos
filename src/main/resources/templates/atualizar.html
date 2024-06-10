@@ -17,11 +17,15 @@
         <form action="#">
           <div class="form-header">
             <div class="title">
-              <h1>Desaparecido</h1>
+              <h1>Atualizar Desaparecido</h1>
             </div>
             <button
               id="back_btn"
-              style="border: none; background-color: transparent"
+              style="
+                border: none;
+                background-color: transparent;
+                margin-left: 10px;
+              "
             >
               <span class="btn-index">Voltar</span>
             </button>
@@ -123,11 +127,11 @@
           <!-- Retorno Visual -->
           <div id="texto_feedback"></div>
           <div class="continue-button">
-            <button id="botao_add_desaparecido">Continuar</button>
+            <button id="botao_update_desaparecido">Continuar</button>
           </div>
         </form>
       </div>
     </div>
-    <script th:src="@{/js/desaparecidos.js}"></script>
+    <script th:src="@{/js/atualizar.js}"></script>
   </body>
 </html>

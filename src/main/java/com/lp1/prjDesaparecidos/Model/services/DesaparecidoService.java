@@ -25,6 +25,18 @@ public class DesaparecidoService {
         return repository.findAll();
     }
 
-    // public void update(Long id, Desaparecido des) {
-    // }
+    public Desaparecido getDesaparecido(Long id) {
+        return repository.getReferenceById(id);
+    }
+
+    public void updateDesaparecido(Long id, Desaparecido desaparecido) {
+        Desaparecido des = repository.getReferenceById(id);
+        des.setNome(desaparecido.getNome());
+        des.setIdade(desaparecido.getIdade());
+        des.setCabelos(desaparecido.getCabelos());
+        des.setCidade(desaparecido.getCidade());
+        des.setDocumento(desaparecido.getDocumento());
+        des.setCor(desaparecido.getCor());
+        repository.save(des);
+    }
 }

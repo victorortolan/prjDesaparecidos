@@ -26,8 +26,8 @@ public class UserController {
 
     @GetMapping("/status")
     public ResponseEntity<String> status() {
-
-        Connection con = Database.Conectar();
+        Database database = new Database();
+        Connection con = database.Conectar();
         if (con != null) {
             return ResponseEntity.status(HttpStatus.ACCEPTED).body("Deu Certo.");
         }

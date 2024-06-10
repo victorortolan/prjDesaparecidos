@@ -54,6 +54,9 @@ loginForm.addEventListener("submit", async (e) => {
   const response_text = await response.text();
   if (response_text != "Não Autorizado") {
     textL.innerHTML = `<h3 style="color:green;margin-top:50px;">Usuário Logado com Sucesso.</h3>`;
+    setTimeout(() => {
+      window.location.href = "/desaparecido";
+    }, 2500);
   } else {
     textL.innerHTML = `<h3 style="color:red;margin-top:50px;"}}>Não foi possível fazer login.</h3>`;
   }
