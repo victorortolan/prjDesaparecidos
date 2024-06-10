@@ -10,7 +10,19 @@ async function carregarLista() {
   const responseJSON = await getLista();
   responseJSON.map((pessoa) => {
     // cada atributo é um td dentro de tr
-    const tr = document.createElement("tr");
+    const tr = document.getElementById;
+    const deleteButton = document.createElement(".delete-button");
+    const editButton = document.createElement(".edit-button");
+    tr.innerHTML = `
+                <td>
+                <button class="delete-button">
+                  <i class="fa-solid fa-x"></i>
+                </button>
+                <button class="edit-button">
+                  <i class="fa-solid fa-user-pen"></i>
+                </button>
+              </td>
+`;
     Object.values(pessoa).forEach((valor) => {
       const td = document.createElement("td");
       td.textContent = valor;
