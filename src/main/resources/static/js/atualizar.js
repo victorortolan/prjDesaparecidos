@@ -13,7 +13,7 @@ const cabelos = document.getElementById("cabelos");
 const documento = document.getElementById("documento");
 const cidade = document.getElementById("cidade");
 async function main() {
-  const data = await fetch(`http://localhost:8080/api/v1/des/${id}`);
+  const data = await fetch(`http://localhost:8080/api/v1/desaparecidos/${id}`);
   const dataJSON = await data.json();
   console.log(dataJSON);
   nome.value = dataJSON.nome;
@@ -34,7 +34,7 @@ btn.addEventListener("click", (e) => {
     documento: documento.value,
     cidade: cidade.value,
   };
-  fetch(`http://localhost:8080/api/v1/des/${id}`, {
+  fetch(`http://localhost:8080/api/v1/desaparecidos/${id}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(formData),

@@ -19,8 +19,8 @@ import com.lp1.prjDesaparecidos.Model.entitys.User;
 import com.lp1.prjDesaparecidos.Model.services.DesaparecidoService;
 
 @RestController
-@RequestMapping(path = "/api/v1/")
-public class DesController {
+@RequestMapping(path = "/api/v1/desaparecidos/")
+public class DesaparecidosController {
 
     @Autowired
     private DesaparecidoService service;
@@ -31,7 +31,7 @@ public class DesController {
         return ResponseEntity.status(HttpStatus.OK).body("Adicionado.");
     };
 
-    @DeleteMapping("/deleted/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> delDesaparecido(@PathVariable Long id) {
         service.deletaDes(id);
         return ResponseEntity.status(HttpStatus.OK).body("Deletado da Listagem.");

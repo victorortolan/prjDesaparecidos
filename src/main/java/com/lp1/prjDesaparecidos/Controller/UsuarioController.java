@@ -1,7 +1,5 @@
 package com.lp1.prjDesaparecidos.Controller;
 
-import java.sql.Connection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,27 +11,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.lp1.prjDesaparecidos.Model.database.Database;
 import com.lp1.prjDesaparecidos.Model.entitys.User;
-import com.lp1.prjDesaparecidos.Model.services.UserService;
+import com.lp1.prjDesaparecidos.Model.services.UsuarioService;
 
 @RestController
-@RequestMapping(path = "api/v1")
-public class UserController {
+@RequestMapping(path = "api/v1/usuario/")
+public class UsuarioController {
 
     @Autowired
-    private UserService userService;
-
-    @GetMapping("/status")
-    public ResponseEntity<String> status() {
-        Database database = new Database();
-        Connection con = database.Conectar();
-        if (con != null) {
-            return ResponseEntity.status(HttpStatus.ACCEPTED).body("Deu Certo.");
-        }
-
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Deu Errado.");
-    }
+    private UsuarioService userService;
 
     @PostMapping("/cadastro")
     public ResponseEntity<String> cadastro(@RequestBody User user) {
@@ -55,7 +41,7 @@ public class UserController {
                 .body("Login feito para o usuário de id : " + responseText + " .\n");
     }
 
-    @GetMapping("/user/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<String> getUserData(@PathVariable Long id) {
         User user = userService.getUserById(id);
         return ResponseEntity.status(HttpStatus.OK)
