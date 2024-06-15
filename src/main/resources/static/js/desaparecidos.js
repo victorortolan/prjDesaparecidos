@@ -16,18 +16,21 @@ botao_add.addEventListener("click", async (e) => {
     documento: document.getElementById("documento").value,
     cidade: document.getElementById("cidade").value,
   };
-  const response = await fetch("http://localhost:8080/api/v1/adiciona", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(formData),
-  });
+  const response = await fetch(
+    "http://localhost:8080/api/v1/desaparecidos/adiciona",
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    }
+  );
 
   const response_text = await response.text();
   if (response_text == "Adicionado.") {
     text.innerHTML = `<h3 style="color:green;margin-top:70px;">Desaparecido Adicionado.</h3>`;
     setTimeout(() => {
       window.location.href = "/lista";
-    }, 3000);
+    }, 2000);
   } else {
     text.innerHTML = `<h3 style="color:red;margin-top:70px;"}}>Não é possível cadastrar desaparecido.</h3>`;
   }

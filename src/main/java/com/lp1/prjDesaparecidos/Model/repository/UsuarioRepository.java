@@ -12,7 +12,7 @@ import com.lp1.prjDesaparecidos.Model.entitys.User;
  *
  * @author vitor
  */
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UsuarioRepository extends JpaRepository<User, Long> {
 
     User findByEmail(String email);
 
