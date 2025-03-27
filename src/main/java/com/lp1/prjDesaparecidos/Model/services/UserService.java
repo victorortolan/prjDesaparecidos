@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.lp1.prjDesaparecidos.Model.entitys.User;
-import com.lp1.prjDesaparecidos.Model.repository.UsuarioRepository;
+import com.lp1.prjDesaparecidos.Model.repository.UserRepository;
 
 /**
  *
@@ -16,10 +16,10 @@ import com.lp1.prjDesaparecidos.Model.repository.UsuarioRepository;
  */
 
 @Service
-public class UsuarioService {
+public class UserService {
 
     @Autowired
-    private UsuarioRepository userRepository;
+    private UserRepository userRepository;
 
     public User registerNewUser(User user) {
         User usr = userRepository.findByEmail(user.getEmail());

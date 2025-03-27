@@ -1,7 +1,5 @@
 async function getLista() {
-  const response = await fetch(
-    "http://localhost:8080/api/v1/desaparecidos/lista"
-  );
+  const response = await fetch("http://localhost:8080/api/v1/lista");
   const responseJSON = await response.json();
   return responseJSON;
 }
@@ -31,13 +29,10 @@ async function carregarLista() {
     delete_btn.addEventListener("click", (event) => {
       // Lógica para deletar
       const alvo = event.target.closest("button").id;
-      const response = fetch(
-        `http://localhost:8080/api/v1/desaparecidos/delete/${alvo}`,
-        {
-          method: "DELETE",
-          headers: { "Content-Type": "application/json" },
-        }
-      );
+      const response = fetch(`http://localhost:8080/api/v1/deleted/${alvo}`, {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+      });
       window.location = "/lista";
     });
 

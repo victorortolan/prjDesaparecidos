@@ -22,14 +22,11 @@ cadastroForm.addEventListener("submit", async (e) => {
     password: document.getElementById("senhaC").value,
   };
 
-  const response = await fetch(
-    "http://localhost:8080/api/v1/usuario/cadastro",
-    {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    }
-  );
+  const response = await fetch("http://localhost:8080/api/v1/cadastro", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(formData),
+  });
   const response_text = await response.text();
   if (response_text == "Usuário Criado com Sucesso!") {
     textC.innerHTML = `<h3 style="color:green;margin-top:50px;">Usuário Cadastrado com Sucesso.</h3>`;
@@ -48,7 +45,7 @@ loginForm.addEventListener("submit", async (e) => {
     password: document.getElementById("senhaL").value,
   };
 
-  const response = await fetch("http://localhost:8080/api/v1/usuario/login", {
+  const response = await fetch("http://localhost:8080/api/v1/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(formData),
