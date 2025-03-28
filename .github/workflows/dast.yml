@@ -6,7 +6,7 @@ on:
       - main
 jobs:
   build:
-    runs-on: [self-hosted, Windows, X64]
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v2
       - run: Start-DynamicScan -target 'www.productionurl.com' -pfcond 'medium' -output 'report.pdf'
